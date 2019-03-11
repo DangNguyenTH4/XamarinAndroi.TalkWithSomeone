@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AndroidDesignerPreferredTheme>Theme.DeviceDefault.NoActionBar.Fullscreen</AndroidDesignerPreferredTheme>
+    <SelectedDevice>Genymotion Custom Tablet - 7.0.0 - API 24 - 1536x2048</SelectedDevice>
+    <DefaultDevice>my_device_1</DefaultDevice>
+  </PropertyGroup>
+</Project>

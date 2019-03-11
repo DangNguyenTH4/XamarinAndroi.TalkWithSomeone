@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ClientTalk"
+             x:Class="ClientTalk.MainPage">
+    <Grid x:Name="grid1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Button 
+                x:Name="MainButton"
+                Text="Tạo Phòng"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="1"
+                Clicked="Button_Clicked"
+                />
+        <Button 
+                x:Name="OutRoom"
+                Text="Thoat Phòng"
+                Grid.Row="0"
+                Grid.Column="1"
+                Grid.ColumnSpan="1"
+                Clicked="btn_onGetOutClicked"
+                />
+        <Label 
+            x:Name="Statuss"
+            HorizontalTextAlignment="Center"
+            Grid.Row="1"
+            Grid.Column="1"
+               Text="...."/>
+
+
+        <ListView
+            x:Name="MainListView"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="2">
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <ViewCell>
+                        <StackLayout BackgroundColor="DeepSkyBlue"
+                                 Padding="6">
+                            <StackLayout.Triggers>
+                                <DataTrigger TargetType="StackLayout"
+                                         Value="True"
+                                         Binding="{Binding IsMine}">
+                                    <Setter Property="BackgroundColor"
+                                        Value="DeepPink"></Setter>
+                                </DataTrigger>
+                            </StackLayout.Triggers>
+                            <Label Text="{Binding Content}"
+                               TextColor="White">
+                                <Label.Triggers>
+                                    <DataTrigger Binding="{Binding IsMine}"
+                                             Value="True"
+                                             TargetType="Label">
+
+                                        <Setter Property="HorizontalTextAlignment"
+                                            Value="End"></Setter>
+                                    </DataTrigger>
+                                </Label.Triggers>
+
+                            </Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Entry Grid.Row="3"
+               Grid.Column="0"
+               Placeholder="Nhập tin nhắn ......."
+               x:Name="ChatEntry"/>
+        <Button Text="Gửi"
+                Grid.Column="1"
+                Grid.Row="3"
+                Clicked="btn_onSendClicked"
+                x:Name="SendButton"/>
+
+    </Grid>
+
+</ContentPage>
